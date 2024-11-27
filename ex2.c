@@ -27,7 +27,6 @@ int main() {
 
 		switch(usersOption) {
 			
-
 			case 1: {
 				char eyes, nose, mouth;
 				int faceSize;
@@ -214,17 +213,14 @@ int main() {
 
 			//////////////////////////////////////////////////////////////////////////////////////
 			case 6: {
-				int smile, cheer;
+				int smile=0, cheer=0;
 				printf("Enter a smile and cheer number:\n");
-				// scanf("%*[^\n]");
-				// scanf("smile: %d, cheer: %d", &smile, &cheer);
-				scanf(" %d %d", &smile, &cheer);
-
-				while (smile <= 0 && cheer <= 0) {
+				int numOfInputs = scanf(" smile : %d , cheer : %d", &smile, &cheer);
+				while (numOfInputs != 2 || smile <= 0 || cheer <= 0 || smile == cheer) {
+					scanf("%*[^\n]%*c");
 					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
-					scanf("smile: %d, cheer: %d", &smile, &cheer);
+					numOfInputs = scanf(" smile : %d , cheer : %d", &smile, &cheer);
 				}
-
 				int n = 0;
 				printf("Enter maximum number for the festival: \n");
 				scanf("%d", &n);
@@ -249,6 +245,7 @@ int main() {
 				break;
 			}
 
+			//////////////////////////////////////////////////////////////////////////////////////
 			case 7: {
 				printf("Thank you for your journey through Numeria!\n");
 				isRequestedMenu = 0;
