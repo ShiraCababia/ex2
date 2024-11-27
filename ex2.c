@@ -1,12 +1,32 @@
 /******************
-Name:
-ID:
+Name: Shira Cababia
+ID: 326153590
 Assignment: ex2
 *******************/
 
 #include <stdio.h>
 
 int main() {
+
+	int isRequestedMenu = 1;
+	int usersOption;
+	while (isRequestedMenu) {
+		 printf("Choose an option:\n");
+		 printf("	1. happy Face\n");
+		 printf("	2. Balanced Number\n");
+		 printf("	3. Generous Number\n");
+		 printf("	4. Circle Of Joy\n");
+		 printf("	5. Happy Numbers\n");
+		 printf("	6. Festival Of Laughter\n");
+		 printf("	7. Exit\n");
+ 		 scanf("%d", &usersOption);
+		 while ((usersOption < 1) || (usersOption > 7)) {
+			printf("This option is not available, please try again.\n");
+ 		 	scanf("%d", &usersOption);
+		 }
+
+		 switch(usersOption) {
+			
 	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
 	/* Example:
 	* n = 3:
@@ -14,8 +34,37 @@ int main() {
 	*   o
 	* \___/
 	*/
-    
+			case 1: {
+				char eyes, nose, mouth;
+				int faceSize;
+				printf("Enter symbols for the eyes, nose, and mouth:\n");
+				scanf(" %c %c %c", &eyes, &nose, &mouth);
+				printf("Enter face size:\n");
+				scanf("%d", &faceSize);
+				while ((faceSize % 2 == 0) || (faceSize <= 0)){
+					printf("The face's size must be an odd and positive number, please try again:\n");
+					scanf("%d", &faceSize);
+				}
+				// 
+				printf("%c", eyes);
+				for (int i=1; i<=faceSize; i++) {
+					printf(" ");
+				}
+				printf("%c\n", eyes);
+				// 
+				for (int i=1; i<=(faceSize/2 + 1); i++) {
+					printf(" ");
+				}
+				printf("%c\n", nose);
+				// 
+				printf("\\");
+				for (int i=1; i<=faceSize; i++) {
+					printf("%c", mouth);
+				}
+				printf("/\n");
+			}
 
+			
 	// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
 	// and the sum of all digits to the right of the middle digit(s) are equal
 	/* Examples:
@@ -23,6 +72,20 @@ int main() {
 	Not blanced: 1552, 34
 	Please notice: the number has to be bigger than 0.
 	*/
+
+
+			case 2: {
+
+			}
+
+
+			case 7: {
+				printf("Thank you for your journey through Numeria!\n");
+				isRequestedMenu = 0;
+			}
+		 }
+	}
+
 
 	// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
 	/* Examples:
@@ -54,5 +117,8 @@ int main() {
 	/* Example:
 	6, smile: 2, cheer: 3 : 1, Smile!, Cheer!, Smile!, 5, Festival!
 	*/
+
+	// }
+
 	return 0;
 }
