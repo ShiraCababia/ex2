@@ -12,7 +12,7 @@ int main() {
 	int usersOption;
 	while (isRequestedMenu) {
 		printf("Choose an option:\n");
-		printf("	1. happy Face\n");
+		printf("	1. Happy Face\n");
 		printf("	2. Balanced Number\n");
 		printf("	3. Generous Number\n");
 		printf("	4. Circle Of Joy\n");
