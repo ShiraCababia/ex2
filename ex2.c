@@ -11,21 +11,21 @@ int main() {
 	int isRequestedMenu = 1;
 	int usersOption;
 	while (isRequestedMenu) {
-		 printf("Choose an option:\n");
-		 printf("	1. happy Face\n");
-		 printf("	2. Balanced Number\n");
-		 printf("	3. Generous Number\n");
-		 printf("	4. Circle Of Joy\n");
-		 printf("	5. Happy Numbers\n");
-		 printf("	6. Festival Of Laughter\n");
-		 printf("	7. Exit\n");
- 		 scanf("%d", &usersOption);
-		 while ((usersOption < 1) || (usersOption > 7)) {
+		printf("Choose an option:\n");
+		printf("	1. happy Face\n");
+		printf("	2. Balanced Number\n");
+		printf("	3. Generous Number\n");
+		printf("	4. Circle Of Joy\n");
+		printf("	5. Happy Numbers\n");
+		printf("	6. Festival Of Laughter\n");
+		printf("	7. Exit\n");
+ 		scanf("%d", &usersOption);
+		while ((usersOption < 1) || (usersOption > 7)) {
 			printf("This option is not available, please try again.\n");
- 		 	scanf("%d", &usersOption);
-		 }
+ 			scanf("%d", &usersOption);
+		}
 
-		 switch(usersOption) {
+		switch(usersOption) {
 			
 
 			case 1: {
@@ -56,6 +56,7 @@ int main() {
 					printf("%c", mouth);
 				}
 				printf("/\n");
+				break;
 			}
 
 			//////////////////////////////////////////////////////////////////////////////////////
@@ -101,6 +102,7 @@ int main() {
 				else {
 					printf("This number isn't balanced and destroys harmony.\n");
 				}
+				break;
 			}
 
 			//////////////////////////////////////////////////////////////////////////////////////
@@ -113,7 +115,7 @@ int main() {
 					scanf("%d", &num);
 				}
 				int sumdivisors = 0;
-				for (int i=num\2; i>0; i--) {
+				for (int i=num/2; i>0; i--) {
 					if (num % i == 0) {
 						sumdivisors = sumdivisors + i;
 					}
@@ -125,17 +127,63 @@ int main() {
 				if (sumdivisors <= num) {
 					printf("This number does not share.\n");
 				}
+				break;
+			}
+
+			//////////////////////////////////////////////////////////////////////////////////////
+			case 4: {
+				int num;
+				printf("Enter a number:\n");
+				scanf("%d", &num);
+				while (num <= 0) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &num);
+				}
+				if ((num == 1) || (num%2 == 0 && num!=2)) {
+					printf("The circle remains incomplete.\n");
+				}
+				else {
+					int isNumDivided = 0;
+					int isReversedDivided = 0;
+					for (int i=num/2; i>2; i--) {
+						if (num % i == 0) {
+							isNumDivided = 1;
+							break;
+						}
+					}
+					if (!isNumDivided) {
+						int tempNum = num;
+						int reversedNum = 0;
+						int tempDig = 0;
+						while (tempNum != 0) {
+							tempDig = tempNum % 10;
+							tempNum = tempNum / 10;
+							reversedNum = (reversedNum * 10) + tempDig;
+						}
+						for (int i=reversedNum/2; i>2; i--) {
+							if (reversedNum % i == 0) {
+								isReversedDivided = 1;
+								break;
+							}
+						}
+					}
+					if (!isNumDivided && !isReversedDivided) {
+						printf("This number completes the circle of joy!\n");
+					}
+					else {
+						printf("The circle remains incomplete.\n");
+					}
+				}
+				break;
 			}
 
 
 
-
-
-			// case 7: {
-			// 	printf("Thank you for your journey through Numeria!\n");
-			// 	isRequestedMenu = 0;
-			// }
-		 }
+			case 7: {
+				printf("Thank you for your journey through Numeria!\n");
+				isRequestedMenu = 0;
+			}
+		}
 	}
 
 
