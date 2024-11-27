@@ -105,7 +105,26 @@ int main() {
 
 			//////////////////////////////////////////////////////////////////////////////////////
 			case 3: {
-				
+				int num;
+				printf("Enter a number:\n");
+				scanf("%d", &num);
+				while (num <= 0) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &num);
+				}
+				int sumdivisors = 0;
+				for (int i=num\2; i>0; i--) {
+					if (num % i == 0) {
+						sumdivisors = sumdivisors + i;
+					}
+					if (sumdivisors > num) {
+					printf("This number is generous!\n");
+					break;;
+					}
+				}
+				if (sumdivisors <= num) {
+					printf("This number does not share.\n");
+				}
 			}
 
 
