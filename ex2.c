@@ -177,6 +177,43 @@ int main() {
 				break;
 			}
 
+			//////////////////////////////////////////////////////////////////////////////////////
+			case 5: {
+				int n;
+				printf("Enter a number:\n");
+				scanf("%d", &n);
+				while (n <= 0) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &n);
+				}
+				printf("Between 1 and %d only these numbers bring happiness: ", n);
+				int tempN = 0;
+				int nDig = 0;
+				int sumSquareDigits = 0;
+				for (int i=1; i<=n; i++) {
+					tempN = i;
+					while (sumSquareDigits != 1 && sumSquareDigits != 4 && sumSquareDigits != n && sumSquareDigits != 7) {
+						sumSquareDigits = 0;
+						while (tempN != 0) {
+						nDig = tempN % 10;
+						sumSquareDigits = sumSquareDigits + (nDig * nDig);
+						tempN = tempN / 10;
+						}
+						if (tempN == 0) {
+							tempN = sumSquareDigits;
+						}
+					}
+					if (sumSquareDigits == 1 || sumSquareDigits == 7) {
+						printf("%d ", i);
+					}
+					sumSquareDigits = 0;
+				}
+				printf("\n");
+				break;
+			}
+
+
+
 
 
 			case 7: {
