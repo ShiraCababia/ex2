@@ -212,13 +212,47 @@ int main() {
 				break;
 			}
 
+			//////////////////////////////////////////////////////////////////////////////////////
+			case 6: {
+				int smile, cheer;
+				printf("Enter a smile and cheer number:\n");
+				// scanf("%*[^\n]");
+				// scanf("smile: %d, cheer: %d", &smile, &cheer);
+				scanf(" %d %d", &smile, &cheer);
 
+				while (smile <= 0 && cheer <= 0) {
+					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+					scanf("smile: %d, cheer: %d", &smile, &cheer);
+				}
 
-
+				int n = 0;
+				printf("Enter maximum number for the festival: \n");
+				scanf("%d", &n);
+				while (n <= 0) {
+					printf("Only positive maximum number is allowed, please try again:\n");
+					scanf("%d", &n);
+				}
+				for (int i=1; i<=n; i++) {
+					if ((i % smile == 0) && (i % cheer == 0)) {
+						printf("Festival!\n");
+					}
+					else if ((i % smile == 0) && !(i % cheer == 0)) {
+						printf("Smile!\n");
+					}
+					else if ((i % cheer == 0) && !(i % smile == 0)) {
+						printf("Cheer!\n");
+					}
+					else {
+						printf("%d\n", i);
+					}
+				}
+				break;
+			}
 
 			case 7: {
 				printf("Thank you for your journey through Numeria!\n");
 				isRequestedMenu = 0;
+				break;
 			}
 		}
 	}
