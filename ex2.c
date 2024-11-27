@@ -27,13 +27,7 @@ int main() {
 
 		 switch(usersOption) {
 			
-	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
-	/* Example:
-	* n = 3:
-	* 0   0
-	*   o
-	* \___/
-	*/
+
 			case 1: {
 				char eyes, nose, mouth;
 				int faceSize;
@@ -64,7 +58,76 @@ int main() {
 				printf("/\n");
 			}
 
-			
+			//////////////////////////////////////////////////////////////////////////////////////
+			case 2: {
+				int num;
+				printf("Enter a number:\n");
+				scanf("%d", &num);
+				while (num <= 0) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &num);
+				}
+				int testedNum = num;
+				int digCounter = 0;
+				int numSides = 2;
+				while (testedNum != 0) {
+					testedNum = testedNum / 10;
+					digCounter++;
+				}
+				testedNum = num;
+				int numEachSide = digCounter / numSides;
+				int sumRight = 0;
+				int sumLeft = 0;
+				for (int i=1; i <= numEachSide; i++) {
+					sumRight = sumRight + (testedNum % 10);
+					testedNum = testedNum / 10;
+				}
+				if (digCounter % 2 == 0) {
+					for (int i=1; i <= numEachSide; i++) {
+						sumLeft = sumLeft + (testedNum % 10);
+						testedNum = testedNum / 10;
+					}
+				}
+				else {
+					testedNum = testedNum / 10;
+					for (int i=1; i <= numEachSide; i++) {
+						sumLeft = sumLeft + (testedNum % 10);
+						testedNum = testedNum / 10;
+					}
+				}
+				if (sumRight == sumLeft) {
+					printf("This number is balanced and brings harmony!\n");
+				}
+				else {
+					printf("This number isn't balanced and destroys harmony.\n");
+				}
+			}
+
+			//////////////////////////////////////////////////////////////////////////////////////
+			case 3: {
+				
+			}
+
+
+
+
+
+			// case 7: {
+			// 	printf("Thank you for your journey through Numeria!\n");
+			// 	isRequestedMenu = 0;
+			// }
+		 }
+	}
+
+
+	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
+	/* Example:
+	* n = 3:
+	* 0   0
+	*   o
+	* \___/
+	*/
+
 	// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
 	// and the sum of all digits to the right of the middle digit(s) are equal
 	/* Examples:
@@ -72,20 +135,6 @@ int main() {
 	Not blanced: 1552, 34
 	Please notice: the number has to be bigger than 0.
 	*/
-
-
-			case 2: {
-
-			}
-
-
-			case 7: {
-				printf("Thank you for your journey through Numeria!\n");
-				isRequestedMenu = 0;
-			}
-		 }
-	}
-
 
 	// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
 	/* Examples:
